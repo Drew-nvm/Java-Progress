@@ -1,0 +1,112 @@
+// Java 3 - PerformanceTask
+import java.io.*;
+
+public class GradeCalculator {
+  private static PrintStream o = System.out;
+  private static BufferedReader num = new BufferedReader
+  (new InputStreamReader(System.in));
+  public static void main(String[] args) throws IOException {
+    
+    // Lecture
+    // Quizzes 30% of Lecture
+    o.print("Enter Q1: ");
+    int Q1 = Integer.parseInt(num.readLine());
+    o.print("Enter Q2: ");
+    int Q2 = Integer.parseInt(num.readLine());
+    o.print("Enter Q3: ");
+    int Q3 = Integer.parseInt(num.readLine());
+    o.print("Enter Q4: ");
+    int Q4 = Integer.parseInt(num.readLine());
+    o.print("Enter Q5: ");
+    int Q5 = Integer.parseInt(num.readLine());
+    double qTotal = (Q1 + Q2 + Q3 + Q4 + Q5) / 5 * 0.30;
+    o.println("Quiz Total: " + qTotal);
+    
+    // Class Standing 15% of Lecture
+    o.print("Enter HomeWork: ");
+    int HW = Integer.parseInt(num.readLine());
+    o.print("Enter Behavior: ");
+    int BEH = Integer.parseInt(num.readLine());
+    o.print("Enter Attendance: ");
+    int ATT = Integer.parseInt(num.readLine());
+    o.print("Enter Recitation: ");
+    int REC = Integer.parseInt(num.readLine());
+    double csTotal = (HW + BEH + ATT + REC) / 4 * 0.15;
+    o.println("Total Class Standing: " + csTotal);
+     
+    // Lecture Exam 50% of Lecture
+    o.print("Enter Lecture Exam: ");
+    int LECEX = Integer.parseInt(num.readLine());
+    double leTotal = LECEX * 0.50;
+    o.println("Total Lecture Exam: " + leTotal);
+    
+    // Lecture Grade 40% of Prelim Grade
+    double lecG = (qTotal + csTotal + leTotal);
+    o.println("Total Prelim Lecture Grade: " + lecG);
+    
+    // Laboratory
+    // Machine Problem 50% of Laboratory Grade
+    o.print("Enter Machine Problem 1: ");
+    int MP1 = Integer.parseInt(num.readLine());
+    o.print("Enter Machine Problem 2: ");
+    int MP2 = Integer.parseInt(num.readLine());
+    o.print("Enter Machine Problem 3: ");
+    int MP3 = Integer.parseInt(num.readLine());
+    o.print("Enter Machine Problem 4: ");
+    int MP4 = Integer.parseInt(num.readLine());
+    double mpTotal = (MP1 + MP2 + MP3 + MP4) / 4 * 0.50;
+    o.println("Total Machine Problem: " + mpTotal);
+    
+    // Class Standing 10% of Laboratory Grade
+    o.print("Enter Activity: ");
+    int ACT = Integer.parseInt(num.readLine());
+    o.print("Enter SeatWork: ");
+    int SW = Integer.parseInt(num.readLine());
+    o.print("Enter Compilation: ");
+    int COMP = Integer.parseInt(num.readLine());
+    double cs2Total = (ACT + SW + COMP) / 3 * 0.10;
+    o.println("Total Class Standing: " + cs2Total);
+    
+    // Laboratory Exam 40% of Laboratory Grade
+    o.print("Enter Laboratory Exam: ");
+    int LABEX = Integer.parseInt(num.readLine());
+    double lbTotal = LABEX * 0.40;
+    o.println("Total Laboratory Exam: " + lbTotal);
+    
+    // Laboratory Grade 60% of Prelim Grade
+    double labG = (mpTotal + cs2Total + lbTotal);
+    o.println("Total Prelim Laboratory Grade: " + labG);
+    
+    // Prelim Grade
+    double prelimG = (lecG * 0.40) + (labG * 0.60);
+    o.println("Prelim grade: " + prelimG);
+    
+    // Condition for Equivalent Grade
+    if (prelimG >= 97 && prelimG <= 100)
+    o.println("Equivalent Grade: (1.00)");
+    else if (prelimG >= 94 && prelimG <= 96) 
+    o.println("Equivalent Grade: (1.25)");
+    else if (prelimG >= 91 && prelimG <= 93)
+    o.println("Equivalent Grade: (1.50)");
+    else if (prelimG >= 88 && prelimG <= 90)
+    o.println("Equivalent Grade: (1.75)");
+    else if (prelimG >= 85 && prelimG <= 87)
+    o.println("Equivalent Grade: (2.00)");
+    else if (prelimG >= 82 && prelimG <= 84)
+    o.println("Equivalent Grade: (2.25)");
+    else if (prelimG >= 79 && prelimG <= 81)
+    o.println("Equivalent Grade: (2.50)");
+    else if (prelimG >= 76 && prelimG <= 78)
+    o.println("Equivalent Grade: (2.75)");
+    else if (prelimG == 75)
+    o.println("Equivalent Grade: (3.00)");
+    else
+    o.println("Equivalent Grade: (5.00)");
+    
+    // Remark
+    if (prelimG >= 75)
+    o.println("Remark: Passed!");
+    else
+    o.println("Remark: Failed!");
+  }
+}
