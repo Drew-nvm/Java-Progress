@@ -1,4 +1,3 @@
-// Java 3 - PerformanceTask
 import java.io.*;
 
 public class GradeCalculator {
